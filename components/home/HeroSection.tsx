@@ -12,12 +12,6 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-secondary/50 backdrop-blur-sm border border-primary/30 rounded-full mb-8">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse mr-2"></span>
-            <span className="text-sm text-gray-300">AI-Powered Business Solutions</span>
-          </div>
-
           {/* Main Headline */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-16 font-display leading-tight tracking-tight">
             <span className="text-white">
@@ -39,10 +33,10 @@ export default function HeroSection() {
             </Link>
             
             <Link
-              href="/#services"
+              href="/solutions"
               className="px-10 py-5 bg-transparent border-2 border-gray-700 hover:border-primary text-foreground font-semibold rounded-lg transition-all card-glow hover:bg-secondary/30 text-lg"
             >
-              Explore Our Services
+              View Solutions
             </Link>
           </div>
 

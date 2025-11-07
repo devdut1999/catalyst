@@ -46,10 +46,10 @@ export default function Navbar() {
               Home
             </Link>
             <Link
-              href="/#services"
+              href="/solutions"
               className="text-gray-300 hover:text-primary transition-colors text-sm font-medium"
             >
-              Services
+              Solutions
             </Link>
             <Link
               href="/#how-it-works"
