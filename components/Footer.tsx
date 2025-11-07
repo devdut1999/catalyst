@@ -9,12 +9,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
-            <Link href="/" className="flex items-center space-x-2 group mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent-purple rounded-lg flex items-center justify-center">
-                <span className="text-xl font-bold">C</span>
+            <Link href="/" className="flex items-center space-x-3 group mb-4">
+              <div className="w-10 h-10 bg-gradient-to-br from-primary via-accent-purple to-primary rounded-lg flex items-center justify-center">
+                <span className="text-2xl font-bold text-background">C</span>
               </div>
-              <span className="text-xl font-bold font-display">
-                Catalyst<span className="text-primary">AI</span>
+              <span className="text-xl font-bold tracking-tight">
+                <span className="font-display">Catalyst</span>
+                <span className="text-primary">AI</span>
               </span>
             </Link>
             <p className="text-gray-400 max-w-md">

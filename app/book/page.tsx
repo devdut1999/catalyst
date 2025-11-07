@@ -1,13 +1,30 @@
-import { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Book a Consultation - Catalyst AI",
-  description: "Schedule a free 15-minute discovery call to discuss your AI needs and how we can help transform your business.",
-};
+import Script from "next/script";
+import { useState } from "react";
 
 export default function BookPage() {
+  const [calendlyLoaded, setCalendlyLoaded] = useState(false);
+  const [showFallback, setShowFallback] = useState(false);
+
   return (
-    <div className="relative min-h-screen py-20">
+    <>
+      {/* Lazy load Calendly script only on this page */}
+      <Script
+        src="https://assets.calendly.com/assets/external/widget.js"
+        strategy="afterInteractive"
+        onLoad={() => {
+          setTimeout(() => setCalendlyLoaded(true), 500);
+        }}
+        onError={() => setShowFallback(true)}
+      />
+      
+      {/* Fallback timeout - show alternative after 10 seconds */}
+      {!calendlyLoaded && typeof window !== 'undefined' && setTimeout(() => {
+        if (!calendlyLoaded) setShowFallback(true);
+      }, 10000) && null}
+      
+      <div className="relative min-h-screen py-20">
       {/* Background effects */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary to-background" />
@@ -20,9 +37,29 @@ export default function BookPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4 font-display">
             Book Your <span className="text-gradient">Free Consultation</span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-6">
             Let's discuss how AI can transform your business. Schedule a 15-minute discovery call to explore your challenges and opportunities.
           </p>
+          
+          {/* Direct link option */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center text-sm">
+            <p className="text-gray-500">Calendar not loading?</p>
+            <a
+              href="https://calendly.com/dashdevadutta/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary-dark underline font-medium"
+            >
+              Open in new tab →
+            </a>
+            <span className="text-gray-700">or</span>
+            <a
+              href="mailto:hello@catalyst-ai.com?subject=Book a Consultation"
+              className="text-primary hover:text-primary-dark underline font-medium"
+            >
+              Email us directly
+            </a>
+          </div>
         </div>
 
         {/* Benefits Grid */}
@@ -47,10 +84,63 @@ export default function BookPage() {
         </div>
 
         {/* Calendly Embed Container */}
-        <div className="bg-secondary/30 backdrop-blur-sm rounded-lg border border-gray-800 p-8 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-          <div className="calendly-inline-widget" 
-               data-url="https://calendly.com/dashdevadutta/30min?hide_gdpr_banner=1&background_color=1a1a2e&text_color=ffffff&primary_color=00e5ff"
-               style={{ minWidth: "320px", height: "700px" }}>
+        <div className="bg-secondary/30 backdrop-blur-sm rounded-lg border border-gray-800 p-8 animate-slide-up relative" style={{ animationDelay: "0.2s", minHeight: "700px" }}>
+          {/* Loading Skeleton */}
+          {!calendlyLoaded && !showFallback && (
+            <div className="absolute inset-8 flex flex-col items-center justify-center space-y-6">
+              <div className="relative w-20 h-20">
+                <div className="absolute inset-0 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+              </div>
+              <p className="text-gray-400 text-lg">Loading calendar...</p>
+              <div className="space-y-3 w-full max-w-md">
+                <div className="h-4 bg-gray-800 rounded animate-pulse"></div>
+                <div className="h-4 bg-gray-800 rounded animate-pulse w-3/4"></div>
+                <div className="h-4 bg-gray-800 rounded animate-pulse w-1/2"></div>
+              </div>
+              <p className="text-sm text-gray-500 mt-4">Taking too long? <button onClick={() => setShowFallback(true)} className="text-primary hover:underline">Click here</button></p>
+            </div>
+          )}
+          
+          {/* Fallback - Direct booking link */}
+          {showFallback && !calendlyLoaded && (
+            <div className="flex flex-col items-center justify-center py-20 space-y-6">
+              <div className="text-6xl mb-4">📅</div>
+              <h3 className="text-2xl font-bold">Having trouble loading?</h3>
+              <p className="text-gray-400 text-center max-w-md">No problem! You can book directly through Calendly or send us an email.</p>
+              <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                <a
+                  href="https://calendly.com/dashdevadutta/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary px-8 py-4"
+                >
+                  <span>Open Calendly Direct →</span>
+                </a>
+                <a
+                  href="mailto:hello@catalyst-ai.com?subject=Consultation Request"
+                  className="px-8 py-4 bg-transparent border-2 border-primary hover:bg-primary hover:text-background text-primary font-semibold rounded-lg transition-all"
+                >
+                  Email Us Instead
+                </a>
+              </div>
+              <button 
+                onClick={() => {
+                  setShowFallback(false);
+                  window.location.reload();
+                }}
+                className="text-sm text-gray-500 hover:text-primary transition-colors mt-4"
+              >
+                ← Try loading calendar again
+              </button>
+            </div>
+          )}
+          
+          {/* Calendly Widget */}
+          <div 
+            className={`calendly-inline-widget transition-opacity duration-500 ${calendlyLoaded ? 'opacity-100' : 'opacity-0'}`}
+            data-url="https://calendly.com/dashdevadutta/30min?hide_gdpr_banner=1&background_color=1a1a2e&text_color=ffffff&primary_color=00e5ff&embed_domain=catalyst-solutions.vercel.app&embed_type=Inline"
+            style={{ minWidth: "320px", height: "700px" }}
+          >
           </div>
         </div>
 
@@ -65,6 +155,7 @@ export default function BookPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

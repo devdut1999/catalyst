@@ -1,4 +1,5 @@
 import HeroSection from "@/components/home/HeroSection";
+import AITransition from "@/components/home/AITransition";
 import ProblemSolutionSection from "@/components/home/ProblemSolutionSection";
 import HowItWorksSection from "@/components/home/HowItWorksSection";
 import CTASection from "@/components/home/CTASection";
@@ -14,6 +15,7 @@ export default function Home() {
       </div>
 
       <HeroSection />
+      <AITransition />
       <ProblemSolutionSection />
       <HowItWorksSection />
       <CTASection />

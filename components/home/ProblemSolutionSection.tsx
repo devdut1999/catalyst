@@ -25,7 +25,7 @@ const services = [
 
 export default function ProblemSolutionSection() {
   return (
-    <section id="services" className="py-20 relative">
+    <section id="services" className="pt-16 pb-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -85,14 +85,14 @@ export default function ProblemSolutionSection() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center mt-16"
         >
-          <p className="text-gray-400 mb-6">
+          <p className="text-gray-400 mb-6 text-lg">
             Ready to see what AI can do for your specific business?
           </p>
           <a
             href="/book"
-            className="inline-block px-8 py-4 bg-transparent border-2 border-primary hover:bg-primary hover:text-background text-primary font-semibold rounded-lg transition-all card-glow"
+            className="inline-block btn-primary px-8 py-4"
           >
-            Let's Discuss Your Challenge
+            <span>Let's Discuss Your Challenge</span>
           </a>
         </motion.div>
       </div>

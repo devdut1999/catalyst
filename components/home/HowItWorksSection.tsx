@@ -104,14 +104,14 @@ export default function HowItWorksSection() {
             <h3 className="text-2xl font-bold mb-4">
               Ready to Get Started?
             </h3>
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-400 mb-6 text-lg">
               Book a free 15-minute discovery call and let's explore how AI can transform your business.
             </p>
             <a
               href="/book"
-              className="inline-block px-8 py-4 bg-primary hover:bg-primary-dark text-background font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-primary/50"
+              className="inline-block btn-primary px-8 py-4"
             >
-              Schedule Your Call
+              <span>Schedule Your Call</span>
             </a>
           </div>
         </motion.div>

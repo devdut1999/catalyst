@@ -34,9 +34,9 @@ export default function CTASection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/book"
-              className="group relative px-10 py-5 bg-primary hover:bg-primary-dark text-background font-bold text-lg rounded-lg transition-all hover:shadow-xl hover:shadow-primary/50 animate-glow"
+              className="btn-primary px-12 py-6 text-xl"
             >
-              <span className="relative z-10">Book Your 15-Minute Call Now</span>
+              <span>Book Your 15-Minute Call Now</span>
             </Link>
           </div>
 

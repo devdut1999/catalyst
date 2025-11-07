@@ -26,12 +26,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent-purple rounded-lg flex items-center justify-center group-hover:animate-glow">
-              <span className="text-xl font-bold">C</span>
+          <Link href="/" className="flex items-center space-x-3 group">
+            <div className="relative w-10 h-10 bg-gradient-to-br from-primary via-accent-purple to-primary rounded-lg flex items-center justify-center group-hover:shadow-lg group-hover:shadow-primary/50 transition-all duration-300">
+              <span className="text-2xl font-bold text-background">C</span>
+              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary to-accent-purple opacity-0 group-hover:opacity-20 blur transition-opacity duration-300"></div>
             </div>
-            <span className="text-xl font-bold font-display">
-              Catalyst<span className="text-primary">AI</span>
+            <span className="text-xl font-bold tracking-tight">
+              <span className="font-display">Catalyst</span>
+              <span className="text-primary">AI</span>
             </span>
           </Link>
 
@@ -39,27 +41,27 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
-              className="text-gray-300 hover:text-primary transition-colors"
+              className="text-gray-300 hover:text-primary transition-colors text-sm font-medium"
             >
               Home
             </Link>
             <Link
               href="/#services"
-              className="text-gray-300 hover:text-primary transition-colors"
+              className="text-gray-300 hover:text-primary transition-colors text-sm font-medium"
             >
               Services
             </Link>
             <Link
               href="/#how-it-works"
-              className="text-gray-300 hover:text-primary transition-colors"
+              className="text-gray-300 hover:text-primary transition-colors text-sm font-medium"
             >
               How It Works
             </Link>
             <Link
               href="/book"
-              className="bg-primary hover:bg-primary-dark text-background px-6 py-2 rounded-lg font-semibold transition-all hover:shadow-lg hover:shadow-primary/50"
+              className="btn-primary px-6 py-2.5 text-sm"
             >
-              Book a Call
+              <span>Book a Call</span>
             </Link>
           </div>
 

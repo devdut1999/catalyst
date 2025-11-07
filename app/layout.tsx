@@ -27,14 +27,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <head>
-        {/* Calendly Widget Script */}
-        <script 
-          type="text/javascript" 
-          src="https://assets.calendly.com/assets/external/widget.js" 
-          async
-        />
-      </head>
       <body className="font-sans antialiased">
         <Navbar />
         <main className="min-h-screen">

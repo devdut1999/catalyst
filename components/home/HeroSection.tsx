@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+    <section className="relative pt-32 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -19,32 +19,28 @@ export default function HeroSection() {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 font-display">
-            We Build Custom AI to
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-16 font-display leading-tight tracking-tight">
+            <span className="text-white">
+              Custom AI Solutions
+            </span>
             <br />
             <span className="text-gradient glow-text">
-              Solve Your Biggest Challenges
+              Built for Your Business
             </span>
           </h1>
 
-          {/* Sub-headline */}
-          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12">
-            Stop guessing. Start predicting. Transform your business with 
-            AI-powered automation, insights, and intelligent applications.
-          </p>
-
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link
               href="/book"
-              className="group relative px-8 py-4 bg-primary hover:bg-primary-dark text-background font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-primary/50 animate-glow"
+              className="btn-primary px-10 py-5 text-lg"
             >
-              <span className="relative z-10">Book a Free Discovery Call</span>
+              <span>Book a Free Discovery Call</span>
             </Link>
             
             <Link
               href="/#services"
-              className="px-8 py-4 bg-secondary/50 backdrop-blur-sm border border-gray-800 hover:border-primary text-foreground font-semibold rounded-lg transition-all card-glow"
+              className="px-10 py-5 bg-transparent border-2 border-gray-700 hover:border-primary text-foreground font-semibold rounded-lg transition-all card-glow hover:bg-secondary/30 text-lg"
             >
               Explore Our Services
             </Link>
@@ -67,17 +63,6 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        >
-          <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-float"></div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
